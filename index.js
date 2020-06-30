@@ -7,7 +7,16 @@ let prefix = botconfig.prefix;
 bot.on("ready", async () => {
     console.log(`${bot.user.username} online lett ${bot.guilds.size} szerveren!`)
     bot.user.setActivity("!help", {type: "PLAYING"});
-});    
+});
+
+bot.on("guildMemberAdd", function(member) {
+    let ch = member.guild.channels.find(`name`, `👉új-tagok`);
+    let r = member.roles.find(`name`, `Civil`);
+    
+    ch.send(`Üdvözlünk a szerveren **${member}>**`)
+    member.addRole(r,id);
+});
+
 //------------------------ M Á S  F A J T A  P A R A N C S O K ---------------------
 bot.on("message", message => {
     if(message.author.bot) return;
