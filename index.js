@@ -77,7 +77,7 @@ bot.on("message", async message => {
     for(let i = 0; i < blacklist.length; i++) {
         if(messageArray.includes(blacklist[i], 0)) {
             message.delete();
-            message.reply("ez a szó tiltott!").then(r =>r.delete(5000));
+            message.reply("ez a szó tiltott!");
         }
     }
     let blacklist1 = ["mizu", "mizu?", "mizi"];
