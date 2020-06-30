@@ -64,6 +64,27 @@ bot.on("message", async message => {
     let mentionMessage = message.content.slice(30);
     let ch = message.guild.channels.find(n => n.name == "reports");
     let args = messageArray.slice(1);
+    let blacklist = ["kurva", "anyad", "anyád", "bazdmeg", "bazzeg", "geci", "gec", "ge*i"];
+    for(let i = 0; i < blacklist.length; i++) {
+        if(messageArray.includes(blacklist[i], 0)) {
+            message.delete();
+            message.reply("ez a szó tiltott!").then(r =>r.delete(5000));
+        }
+    }
+    let blacklist1 = ["mizu", "mizu?", "mizi"];
+    for(let i = 0; i < blacklist1.length; i++) {
+        if(messageArray.includes(blacklist1[i], 0)) {
+            message.delete();
+            message.reply("velem semmi, éppen elvagyok veletek. Veled? Illetve várjuk a többiek válaszát!");
+        }
+    }
+    let blacklist2 = ["ip", "info", "web", "forum", "fórum", "weboldal", "facebook", "szerver", "server"];
+    for(let i = 0; i < blacklist2.length; i++) {
+        if(messageArray.includes(blacklist2[i], 0)) {
+            message.delete();
+            message.reply("itt vannak az információk - **IP: demon.sunwell.hu:7837, fórum: wwww.diamondrp.hu, SA:MP szerver");
+        }
+    }
     let embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.displayAvatarURL)
     .setFooter(`Joya bot`, bot.user.avatarURL)
