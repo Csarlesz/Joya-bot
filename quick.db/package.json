@@ -32,7 +32,7 @@
   "bundleDependencies": false,
   "dependencies": {
     "better-sqlite3": "^6.0.1",
-    "lodash": "4.17.15"
+    "lodash": "4.17.19"
   },
   "deprecated": false,
   "description": "An easy, non-locking, persistent better-sqlite3 wrapper designed to be easy to setup & utilize",
